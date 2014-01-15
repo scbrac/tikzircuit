@@ -1,0 +1,2887 @@
+\documentclass[parskip=full]{scrartcl}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{siunitx}
+\usepackage{verbatim}
+\usepackage[linktoc=all,colorlinks=false]{hyperref}
+\hypersetup{allbordercolors=white}
+\input{tikzircuit}
+\title{Components and Examples of tikzircuit}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\input{introExamples}
+
+\section{Sources}
+
+\subsection{Voltage Source in North-South Orientation}
+
+\begin{verbatim}
+\voltagesourceNS{name}{position}{align:left|right}{text}
+\end{verbatim}
+node endings: N: north, S: south
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\renewcommand{\voltagecolor}{blue}
+\renewcommand{\fillcolor}{lightgray}
+\voltagesourceNS{u}{(0,0)}{left}{\SI{1}{\volt}}
+\draw (uN) -- ++(0,0.5) (uS) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \renewcommand{\voltagecolor}{blue}
+  \renewcommand{\fillcolor}{lightgray}
+  \voltagesourceNS{u}{(0,0)}{left}{\SI{1}{\volt}}
+  \draw (uN) -- ++(0,0.5) (uS) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Voltage Source in South-North Orientation}
+
+\begin{verbatim}
+\voltagesourceSN{name}{position}{align:left|right}{text}
+\end{verbatim}
+node endings: N: north, S: south
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\renewcommand{\voltagecolor}{blue}
+\voltagesourceSN{Ua}{(0,0)}{left}{\SI{10}{\volt}}
+\draw (uN) -- ++(0,0.5) (uS) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \renewcommand{\voltagecolor}{blue}
+  \voltagesourceSN{Ua}{(0,0)}{left}{\SI{10}{\volt}}
+  \draw (uN) -- ++(0,0.5) (uS) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Voltage Source in West-East Orientation}
+
+\begin{verbatim}
+\voltagesourceWE{name}{position}{align:above|below}{text}
+\end{verbatim}
+node endings: W: west, E: east
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\voltagesourceWE{u}{(0,0)}{above}{\SI{1}{\volt}}
+\draw (uW) -- ++(-0.5,0) (uE) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \voltagesourceWE{u}{(0,0)}{above}{\SI{1}{\volt}}
+  \draw (uW) -- ++(-0.5,0) (uE) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Voltage Source in East-West Orientation}
+
+\begin{verbatim}
+\voltagesourceEW{name}{position}{align:above|below}{text}
+\end{verbatim}
+node endings: W: west, E: east
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\voltagesourceEW{u}{(0,0)}{below}{\SI{5}{\volt}}
+\draw (uW) -- ++(-0.5,0) (uE) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \voltagesourceEW{u}{(0,0)}{below}{\SI{5}{\volt}}
+  \draw (uW) -- ++(-0.5,0) (uE) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Battery in North-South Orientation}
+
+\begin{verbatim}
+\batteryNS{name}{position}{left text}{right text}
+\end{verbatim}
+node endings: N: north, S: south
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\batteryNS{u}{(0,0)}{$U_{b}$}{\SI{1}{\volt}}
+\draw (uN) -- ++(0,0.5) (uS) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \batteryNS{u}{(0,0)}{$U_{b}$}{\SI{1}{\volt}}
+  \draw (uN) -- ++(0,0.5) (uS) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Battery in South-North Orientation}
+
+\begin{verbatim}
+\batterySN{name}{position}{left text}{right text}
+\end{verbatim}
+node endings: N: north, S: south
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\batterySN{u}{(0,0)}{$U_{b}$}{\SI{1}{\volt}}
+\draw (uN) -- ++(0,0.5) (uS) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \batterySN{u}{(0,0)}{$U_{b}$}{\SI{1}{\volt}}
+  \draw (uN) -- ++(0,0.5) (uS) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Current Source in North-South Orientation}
+
+\begin{verbatim}
+\currentsourceNS{name}{position}{align:left|right}{text}
+\end{verbatim}
+node endings: N: north, S: south
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\renewcommand{\currentcolor}{green}
+\currentsourceNS{i}{(0,0)}{right}{$I$}
+\draw (iN) -- ++(0,0.5) (iS) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \renewcommand{\currentcolor}{green}
+  \currentsourceNS{i}{(0,0)}{right}{$I$}
+  \draw (iN) -- ++(0,0.5) (iS) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Current Source in South-North Orientation}
+
+\begin{verbatim}
+\currentsourceSN{name}{position}{align:left|right}{text}
+\end{verbatim}
+node endings: N: north, S: south
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\renewcommand{\currentcolor}{red}
+\currentsourceSN{i}{(0,0)}{right}{$I$}
+\draw (iN) -- ++(0,0.5) (iS) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \renewcommand{\currentcolor}{red}
+  \currentsourceSN{i}{(0,0)}{right}{$I$}
+  \draw (iN) -- ++(0,0.5) (iS) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Current Source in West-East Orientation}
+
+\begin{verbatim}
+\currentsourceWE{name}{position}{align:above|below}{text}
+\end{verbatim}
+node endings: W: west, E: east
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\currentsourceWE{i}{(0,0)}{above}{$I$}
+\draw (iW) -- ++(-0.5,0) (iE) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \currentsourceWE{i}{(0,0)}{above}{$I$}
+  \draw (iW) -- ++(-0.5,0) (iE) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Current Source in East-West Orientation}
+
+\begin{verbatim}
+\currentsourceEW{name}{position}{align:above|below}{text}
+\end{verbatim}
+node endings: W: west, E: east
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\currentsourceEW{i}{(0,0)}{above}{$I$}
+\draw (iW) -- ++(-0.5,0) (iE) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \currentsourceEW{i}{(0,0)}{above}{$I$}
+  \draw (iW) -- ++(-0.5,0) (iE) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\section{Voltage and Current Arrows}
+
+\subsection{Voltage Arrow Between Two Nodes}
+
+\begin{verbatim}
+\voltagearrow{begin}{end}{text parameters}{text}
+\end{verbatim}
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\draw (0,1) -- (1,1) \terminal{tOne};
+\draw (0,0) -- (1,0) \terminal{tTwo};
+\voltagearrow{(tOne)}{(tTwo)}{right}{$U$}
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \draw (0,1) -- (1,1) \terminal{tOne};
+  \draw (0,0) -- (1,0) \terminal{tTwo};
+  \voltagearrow{(tOne)}{(tTwo)}{right}{$U$}
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Curved Voltage Arrow Between Two Nodes}
+
+\begin{verbatim}
+\voltagearrowC{begin}{end}{control option}{text parameters}{text}
+\end{verbatim}
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\draw (0,1) -- (1,1) \terminal{tA};
+\draw (0,0) -- (1,0) \terminal{tB};
+\voltagearrowC{(tA)}{(tB)}{+(1,0) and +(1,0)}{left}{$U$}
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \draw (0,1) -- (1,1) \terminal{tA};
+  \draw (0,0) -- (1,0) \terminal{tB};
+  \voltagearrowC{(tA)}{(tB)}{+(1,0) and +(1,0)}{left}{$U$}
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Current Arrow in North-South Orientation}
+
+\begin{verbatim}
+\currentarrowNS{position}{align:left|right}{text}
+\end{verbatim}
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\draw (0,0) -- (0,1) \mnode{ia};
+\currentarrowNS{(ia)}{left}{$I$}
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \draw (0,0) -- (0,1) \mnode{ia};
+  \currentarrowNS{(ia)}{left}{$I$}
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Current Arrow in South-North Orientation}
+
+\begin{verbatim}
+\currentArrowSN{position}{align:left|right}{text}
+\end{verbatim}
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\draw (0,0) -- (0,1) \mnode{ia};
+\currentArrowSN{(ia)}{left}{$I$}
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \draw (0,0) -- (0,1) \mnode{ia};
+  \currentArrowSN{(ia)}{left}{$I$}
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Current Arrow in West-East Orientation}
+
+\begin{verbatim}
+\currentArrowWE{position}{align:above|below}{text}
+\end{verbatim}
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\draw (0,0) -- (1,0) \mnode{ia};
+\currentArrowWE{(ia)}{above}{$I$}
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \draw (0,0) -- (1,0) \mnode{ia};
+  \currentArrowWE{(ia)}{above}{$I$}
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Current Arrow in East-West Orientation}
+
+\begin{verbatim}
+\currentArrowEW{position}{align:above|below}{text}
+\end{verbatim}
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\draw (0,0) -- (1,0) \mnode{ia};
+\currentArrowEW{(ia)}{above}{$I$}
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \draw (0,0) -- (1,0) \mnode{ia};
+  \currentArrowEW{(ia)}{above}{$I$}
+
+\end{tikzpicture}
+\end{minipage}
+
+\section{Resistors, Capacitors and Inductors}
+
+\subsection{Resistor in West-East Orientation}
+
+\begin{verbatim}
+\resistorWE{name}{position}{text above}{text below}
+\end{verbatim}
+node endings: W: west, E: east
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\resistorWE{r}{(0,0)}{$R_{1}$}{\SI{1}{\ohm}}
+\draw (rW) -- ++(-0.5,0) (rE) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \resistorWE{r}{(0,0)}{$R_{1}$}{\SI{1}{\ohm}}
+  \draw (rW) -- ++(-0.5,0) (rE) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Resistor in North-South Orientation}
+
+\begin{verbatim}
+\resistorWE{name}{position}{text left}{text right}
+\end{verbatim}
+node endings: N: north, S: south
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\resistorNS{r}{(0,0)}{$R_{1}$}{ }
+\draw (rN) -- ++(0,0.5) (rS) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \resistorNS{r}{(0,0)}{$R_{1}$}{ }
+  \draw (rN) -- ++(0,0.5) (rS) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Capacitor in West-East Orientation}
+
+\begin{verbatim}
+\capacitorWE{name}{position}{text above}{text below}
+\end{verbatim}
+node endings: W: west, E: east
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\capacitorWE{c}{(0,0)}{$C_{1}$}{\SI{1}{\micro\farad}}
+\draw (cW) -- ++(-0.5,0) (cE) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \capacitorWE{c}{(0,0)}{$C_{1}$}{\SI{1}{\micro\farad}}
+  \draw (cW) -- ++(-0.5,0) (cE) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Capacitor in North-South Orientation}
+
+\begin{verbatim}
+\capacitorNS{name}{position}{text left}{text right}
+\end{verbatim}
+node endings: N: north, S: south
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\capacitorNS{c}{(0,0)}{$C_{1}$}{\SI{1}{\micro\farad}}
+\draw (cN) -- ++(0,0.5) (cS) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \capacitorNS{c}{(0,0)}{$C_{1}$}{\SI{1}{\micro\farad}}
+  \draw (cN) -- ++(0,0.5) (cS) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Inductor in West-East Orientation}
+
+\begin{verbatim}
+\inductorWE{name}{position}{text above}{text below}
+\end{verbatim}
+node endings: W: west, E: east
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\inductorWE{l}{(0,0)}{$L_{1}$}{\SI{1}{\micro\henry}}
+\draw (lW) -- ++(-0.5,0) (lE) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \inductorWE{l}{(0,0)}{$L_{1}$}{\SI{1}{\micro\henry}}
+  \draw (lW) -- ++(-0.5,0) (lE) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Inductor in North-South Orientation}
+
+\begin{verbatim}
+\inductorNS{name}{position}{text left}{text right}
+\end{verbatim}
+node endings: N: north, S: south
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\inductorNS{l}{(0,0)}{$L_{1}$}{\SI{1}{\micro\henry}}
+\draw (lN) -- ++(0,0.5) (lS) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \inductorNS{l}{(0,0)}{$L_{1}$}{\SI{1}{\micro\henry}}
+  \draw (lN) -- ++(0,0.5) (lS) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Inductor in North-South Orientation (Mirrored)}
+
+\begin{verbatim}
+\inductorNS{name}{position}{text left}{text right}
+\end{verbatim}
+node endings: N: north, S: south
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\inductorNSmirror{l}{(0,0)}{$L$}{\SI{1}{\micro\henry}}
+\draw (lN) -- ++(0,0.5) (lS) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \inductorNSmirror{l}{(0,0)}{$L$}{\SI{1}{\micro\henry}}
+  \draw (lN) -- ++(0,0.5) (lS) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Varistor in West-East Orientation}
+
+\begin{verbatim}
+\varistorWE{name}{position}{text left}{text right}{controlling voltage}
+\end{verbatim}
+node endings: W: west, E: east
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\varistorWE{r}{(0,0)}{$R_{1}$}{}{$U_{v}$}
+\draw (rW) -- ++(-0.5,0) (rE) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \varistorWE{r}{(0,0)}{$R_{1}$}{}{$U_{v}$}
+  \draw (rW) -- ++(-0.5,0) (rE) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Potentiometer in West-East Orientation, North Connection}
+
+\begin{verbatim}
+\potentiometerWEN{name}{position}{text}
+\end{verbatim}
+node endings: W: west, E: east, N: north
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\potentiometerWEN{p}{(0,0)}{$R_{1}$}
+\draw (pW) -- ++(-0.5,0) (pE) -- ++(0.5,0);
+\draw (pN) |- ++(0.5,0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \potentiometerWEN{p}{(0,0)}{$R_{1}$}
+  \draw (pW) -- ++(-0.5,0) (pE) -- ++(0.5,0);
+  \draw (pN) |- ++(0.5,0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Potentiometer in West-East Orientation, South Connection}
+
+\begin{verbatim}
+\potentiometerWES{name}{position}{text}
+\end{verbatim}
+node endings: W: west, E: east, S: south
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\potentiometerWES{p}{(0,0)}{$R_{1}$}
+\draw (pW) -- ++(-0.5,0) (pE) -- ++(0.5,0);
+\draw (pS) |- ++(0.5,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \potentiometerWES{p}{(0,0)}{$R_{1}$}
+  \draw (pW) -- ++(-0.5,0) (pE) -- ++(0.5,0);
+  \draw (pS) |- ++(0.5,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Potentiometer in North-South Orientation, East Connection}
+
+\begin{verbatim}
+\potentiometerNSE{name}{position}{text}
+\end{verbatim}
+node endings: N: north, S: south, E: east
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\potentiometerNSE{p}{(0,0)}{$R_{1}$}
+\draw (pS) -- ++(0,-0.5) (pN) -- ++(0,0.5);
+\draw (pE) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \potentiometerNSE{p}{(0,0)}{$R_{1}$}
+  \draw (pS) -- ++(0,-0.5) (pN) -- ++(0,0.5);
+  \draw (pE) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Potentiometer in North-South Orientation, West Connection}
+
+\begin{verbatim}
+\potentiometerNSW{name}{position}{text}
+\end{verbatim}
+node endings: N: north, S: south, W: west
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\potentiometerNSW{p}{(0,0)}{$R_{1}$}
+\draw (pS) -- ++(0,-0.5) (pN) -- ++(0,0.5);
+\draw (pW) -- ++(-0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \potentiometerNSW{p}{(0,0)}{$R_{1}$}
+  \draw (pS) -- ++(0,-0.5) (pN) -- ++(0,0.5);
+  \draw (pW) -- ++(-0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\section{Transformer}
+
+\subsection{Transformer in North-South Orientation}
+
+\begin{verbatim}
+\transformerNS{name}{position}
+\end{verbatim}
+node endings: N: north, S: south
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\transformerNS{tf}{(0,0)}
+\draw (tfAN) -- ++(-0.5,0) (tfAS) -- ++(-0.5,0);
+\draw (tfBN) -- ++( 0.5,0) (tfBS) -- ++( 0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \transformerNS{tf}{(0,0)}
+  \draw (tfAN) -- ++(-0.5,0) (tfAS) -- ++(-0.5,0);
+  \draw (tfBN) -- ++( 0.5,0) (tfBS) -- ++( 0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\section{Diodes}
+
+\subsection{Diode In North-South Orientation}
+
+\begin{verbatim}
+\diodeNS{name}{position}{align:left|right}{text}
+\end{verbatim}
+node endings: A: anode, C: cathode
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\diodeNS{d}{(0,0)}{left}{$D_{1}$}
+\draw (dA) -- ++(0,0.5) (dC) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \diodeNS{d}{(0,0)}{left}{$D_{1}$}
+  \draw (dA) -- ++(0,0.5) (dC) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Diode in South-North Orientation}
+
+\begin{verbatim}
+\diodeSN{name}{position}{align:left|right}{text}
+\end{verbatim}
+node endings: A: anode, C: cathode
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\diodeSN{d}{(0,0)}{right}{$D_{1}$}
+\draw (dA) -- ++(0,-0.5) (dC) -- ++(0,0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \diodeSN{d}{(0,0)}{right}{$D_{1}$}
+  \draw (dA) -- ++(0,-0.5) (dC) -- ++(0,0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Diode in West-East Orientation}
+
+\begin{verbatim}
+\diodeWE{name}{position}{align:above|below}{text}
+\end{verbatim}
+node endings: A: anode, C: cathode
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\diodeWE{d}{(0,0)}{above}{$D_{1}$}
+\draw (dA) -- ++(-0.5,0) (dC) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \diodeWE{d}{(0,0)}{above}{$D_{1}$}
+  \draw (dA) -- ++(-0.5,0) (dC) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Diode in East-West Orientation}
+
+\begin{verbatim}
+\diodeEW{name}{position}{align:above|below}{text}
+\end{verbatim}
+node endings: A: anode, C: cathode
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\diodeEW{d}{(0,0)}{above}{$D_{1}$}
+\draw (dA) -- ++(0.5,0) (dC) -- ++(-0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \diodeEW{d}{(0,0)}{above}{$D_{1}$}
+  \draw (dA) -- ++(0.5,0) (dC) -- ++(-0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Zener Diode in North-South Orientation}
+
+\begin{verbatim}
+\zDiodeNS{name}{position}{align:left|right}{text}
+\end{verbatim}
+node endings: A: anode, C: cathode
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\zDiodeNS{zd}{(0,0)}{left}{$D_{1}$}
+\draw (zdA) -- ++(0,0.5) (zdC) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \zDiodeNS{zd}{(0,0)}{left}{$D_{1}$}
+  \draw (zdA) -- ++(0,0.5) (zdC) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Zener Diode in South-North Orientation}
+
+\begin{verbatim}
+\zDiodeSN{name}{position}{align:left|right}{text}
+\end{verbatim}
+node endings: A: anode, C: cathode
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\zDiodeSN{zd}{(0,0)}{left}{$D_{1}$}
+\draw (zdA) -- ++(0,-0.5) (zdC) -- ++(0,0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \zDiodeSN{zd}{(0,0)}{left}{$D_{1}$}
+  \draw (zdA) -- ++(0,-0.5) (zdC) -- ++(0,0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Zener Diode in West-East Orientation}
+
+\begin{verbatim}
+\zDiodeWE{name}{position}{align:above|below}{text}
+\end{verbatim}
+node endings: A: anode, C: cathode
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\zDiodeWE{zd}{(0,0)}{above}{$D_{1}$}
+\draw (zdA) -- ++(-0.5,0) (zdC) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \zDiodeWE{zd}{(0,0)}{above}{$D_{1}$}
+  \draw (zdA) -- ++(-0.5,0) (zdC) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Zener Diode in East-West Orientation}
+
+\begin{verbatim}
+\zDiodeEW{name}{position}{align:above|below}{text}
+\end{verbatim}
+node endings: A: anode, C: cathode
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\zDiodeEW{zd}{(0,0)}{above}{$D_{1}$}
+\draw (zdA) -- ++(0.5,0) (zdC) -- ++(-0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \zDiodeEW{zd}{(0,0)}{above}{$D_{1}$}
+  \draw (zdA) -- ++(0.5,0) (zdC) -- ++(-0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{LED in North-South Orientation, Light in East Direction}
+
+\begin{verbatim}
+\ledNSE{name}{position}{text}
+\end{verbatim}
+node endings: A: anode, C: cathode
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\ledNSE{led}{(0,0)}{$D_{1}$}
+\draw (ledA) -- ++(0,0.5) (ledC) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \ledNSE{led}{(0,0)}{$D_{1}$}
+  \draw (ledA) -- ++(0,0.5) (ledC) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{LED in North-South Orientation, Light in West Direction}
+
+\begin{verbatim}
+\ledNSW{name}{position}{text}
+\end{verbatim}
+node endings: A: anode, C: cathode
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\ledNSW{led}{(0,0)}{$D_{1}$}
+\draw (ledA) -- ++(0,0.5) (ledC) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \ledNSW{led}{(0,0)}{$D_{1}$}
+  \draw (ledA) -- ++(0,0.5) (ledC) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{LED in South-North Orientation, Light in West Direction}
+
+\begin{verbatim}
+\ledSNW{name}{position}{text}
+\end{verbatim}
+node endings: A: anode, C: cathode
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\ledSNW{led}{(0,0)}{$D_{1}$}
+\draw (ledA) -- ++(0,-0.5) (ledC) -- ++(0,0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \ledSNW{led}{(0,0)}{$D_{1}$}
+  \draw (ledA) -- ++(0,-0.5) (ledC) -- ++(0,0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{LED in West-East orientation, Light in North Direction}
+
+\begin{verbatim}
+\ledWEN{name}{position}{text}
+\end{verbatim}
+node endings: A: anode, C: cathode
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\ledWEN{led}{(0,0)}{$D_{1}$}
+\draw (ledA) -- ++(-0.5,0) (ledC) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \ledWEN{led}{(0,0)}{$D_{1}$}
+  \draw (ledA) -- ++(-0.5,0) (ledC) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Photo Diode in North-South Orientation, Light from East}
+
+\begin{verbatim}
+\photodiodeNSE{name}{position}{text}
+\end{verbatim}
+node endings: A: anode, C: cathode
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\photodiodeNSE{pd}{(0,0)}{$D_{1}$}
+\draw (pdA) -- ++(0,0.5) (pdC) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \photodiodeNSE{pd}{(0,0)}{$D_{1}$}
+  \draw (pdA) -- ++(0,0.5) (pdC) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{photo diode in North-South Orientation, Light from West}
+
+\begin{verbatim}
+\photodiodeNSW{name}{position}{text}
+\end{verbatim}
+node endings: A: anode, C: cathode
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\photodiodeNSW{pd}{(0,0)}{$D_{1}$}
+\draw (pdA) -- ++(0,0.5) (pdC) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \photodiodeNSW{pd}{(0,0)}{$D_{1}$}
+  \draw (pdA) -- ++(0,0.5) (pdC) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\section{Transistors}
+
+\subsection{N-Channel JFET in North-South Orientation}
+
+\begin{verbatim}
+\nChnJFETNS{name}{position}
+\end{verbatim}
+node endings: D: drain, G: gate, S: source
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\nChnJFETNS{jfet}{(0,0)}
+\path (jfetG) node [left]{G};
+\path (jfetD) node [above]{D};
+\path (jfetS) node [below]{S};
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \nChnJFETNS{jfet}{(0,0)}
+  \path (jfetG) node [left]{G};
+  \path (jfetD) node [above]{D};
+  \path (jfetS) node [below]{S};
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{N-Channel JFET in West-East Orientation}
+
+\begin{verbatim}
+\nChnJFETWE{name}{position}
+\end{verbatim}
+node endings: D: drain, G: gate, S: source
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\nChnJFETWE{jfet}{(0,0)}
+\path (jfetG) node [below]{G};
+\path (jfetD) node [left]{D};
+\path (jfetS) node [right]{S};
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \nChnJFETWE{jfet}{(0,0)}
+  \path (jfetG) node [below]{G};
+  \path (jfetD) node [left]{D};
+  \path (jfetS) node [right]{S};
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Enhancement-Mode N-Channel MOSFET in North-South Orientation}
+
+\begin{verbatim}
+\NMOSFETenhNS{name}{position}
+\end{verbatim}
+node endings: D: drain, G: gate, S: source, B: bulk
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\NMOSFETenhNS{jfet}{(0,0)}
+\path (jfetG) node [left]{G};
+\path (jfetD) node [above]{D};
+\path (jfetS) node [below]{S};
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \NMOSFETenhNS{jfet}{(0,0)}
+  \path (jfetG) node [left]{G};
+  \path (jfetD) node [above]{D};
+  \path (jfetS) node [below]{S};
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Enhancement-Mode P-Channel MOSFET in North-South Orientation}
+
+\begin{verbatim}
+\PMOSFETenhNS{name}{position}
+\end{verbatim}
+node endings: D: drain, G: gate, S: source, B: bulk
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\PMOSFETenhNS{jfet}{(0,0)}
+\path (jfetG) node [left]{G};
+\path (jfetD) node [above]{D};
+\path (jfetS) node [below]{S};
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \PMOSFETenhNS{jfet}{(0,0)}
+  \path (jfetG) node [left]{G};
+  \path (jfetD) node [above]{D};
+  \path (jfetS) node [below]{S};
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{NPN Bipolar Junction Transistor in North-South Orientation}
+
+\begin{verbatim}
+\BJTnpnNS{name}{position}
+\end{verbatim}
+node endings: B: basis, E: emitter, C: collector
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\BJTnpnNS{b}{(0,0)}
+\path (bB) node [left]{B};
+\path (bC) node [above]{C};
+\path (bE) node [below]{E};
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \BJTnpnNS{b}{(0,0)}
+  \path (bB) node [left]{B};
+  \path (bC) node [above]{C};
+  \path (bE) node [below]{E};
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{NPN Bipolar Junction Transistor in North-South Orientation (Mirrored)}
+
+\begin{verbatim}
+\BJTnpnNSMirror{name}{position}
+\end{verbatim}
+node endings: B: basis, E: emitter, C: collector
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\BJTnpnNSMirror{b}{(0,0)}
+\path (bB) node [right]{B};
+\path (bC) node [above]{C};
+\path (bE) node [below]{E};
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \BJTnpnNSMirror{b}{(0,0)}
+  \path (bB) node [right]{B};
+  \path (bC) node [above]{C};
+  \path (bE) node [below]{E};
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{NPN Bipolar Junction Transistor in South-North Orientation}
+
+\begin{verbatim}
+\BJTnpnSN{name}{position}
+\end{verbatim}
+node endings: B: basis, E: emitter, C: collector
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\BJTnpnSN{b}{(0,0)}
+\path (bB) node [left]{B};
+\path (bC) node [below]{C};
+\path (bE) node [above]{E};
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \BJTnpnSN{b}{(0,0)}
+  \path (bB) node [left]{B};
+  \path (bC) node [below]{C};
+  \path (bE) node [above]{E};
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{NPN Bipolar Junction Transistor in East-West Orientation}
+
+\begin{verbatim}
+\BJTnpnEW{name}{position}
+\end{verbatim}
+node endings: B: basis, E: emitter, C: collector
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\BJTnpnEW{b}{(0,0)}
+\path (bB) node [below]{B};
+\path (bC) node [right]{C};
+\path (bE) node [left]{E};
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \BJTnpnEW{b}{(0,0)}
+  \path (bB) node [below]{B};
+  \path (bC) node [right]{C};
+  \path (bE) node [left]{E};
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{PNP Bipolar Junction Transistor in North-South Orientation}
+
+\begin{verbatim}
+\BJTpnpNS{name}{position}
+\end{verbatim}
+node endings: B: basis, E: emitter, C: collector
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\BJTpnpNS{b}{(0,0)}
+\path (bB) node [left]{B};
+\path (bC) node [above]{C};
+\path (bE) node [below]{E};
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \BJTpnpNS{b}{(0,0)}
+  \path (bB) node [left]{B};
+  \path (bC) node [above]{C};
+  \path (bE) node [below]{E};
+
+\end{tikzpicture}
+\end{minipage}
+
+\section{Operational Amplifiers}
+
+\subsection{OP-AMP, Standardized Symbol}
+
+\begin{verbatim}
+\opampNorm{name}{position}
+\end{verbatim}
+node endings: Out: output, InMinus: n-input, InPlus: p-input,
+              UbattPlus: positive power supply,
+              UbattMinus: negative power supply
+              Gnd: ground
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\opampNorm{op}{(0,0)}
+\draw (opOut) -- ++(0.5,0);
+\draw (opInMinus) -- ++(-0.5,0);
+\draw (opInPlus) -- ++(-0.5,0);
+\draw (opUbattPlus) -- ++(0,0.3) node [above]{$+U_{0}$};
+\draw (opUbattMinus) -- ++(0,-0.3) node [below]{$-U_{0}$};
+\draw (opGnd) -- ++(0,-0.2) -| ++(0.3,-0.1) \cnode{gnd};
+\gnd{(gnd)}
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \opampNorm{op}{(0,0)}
+  \draw (opOut) -- ++(0.5,0);
+  \draw (opInMinus) -- ++(-0.5,0);
+  \draw (opInPlus) -- ++(-0.5,0);
+  \draw (opUbattPlus) -- ++(0,0.3) node [above]{$+U_{0}$};
+  \draw (opUbattMinus) -- ++(0,-0.3) node [below]{$-U_{0}$};
+  \draw (opGnd) -- ++(0,-0.2) -| ++(0.3,-0.1) \cnode{gnd};
+  \gnd{(gnd)}
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{OP-AMP, Standardized Symbol, N-Input above P-Input}
+
+\begin{verbatim}
+\opampNormInv{name}{position}
+\end{verbatim}
+node endings: Out: output, InMinus: n-input, InPlus: p-input,
+              UbattPlus: positive power supply,
+              UbattMinus: negative power supply
+              Gnd: ground
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\opampNormInv{op}{(0,0)}
+\draw (opOut) -- ++(0.5,0);
+\draw (opInMinus) -- ++(-0.5,0);
+\draw (opInPlus) -- ++(-0.5,0);
+\draw (opUbattPlus) -- ++(0,0.3) node [above]{$+U_{0}$};
+\draw (opUbattMinus) -- ++(0,-0.3) node [below]{$-U_{0}$};
+\draw (opGnd) -- ++(0,-0.2) -| ++(0.3,-0.1) \cnode{gnd};
+\gnd{(gnd)}
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \opampNormInv{op}{(0,0)}
+  \draw (opOut) -- ++(0.5,0);
+  \draw (opInMinus) -- ++(-0.5,0);
+  \draw (opInPlus) -- ++(-0.5,0);
+  \draw (opUbattPlus) -- ++(0,0.3) node [above]{$+U_{0}$};
+  \draw (opUbattMinus) -- ++(0,-0.3) node [below]{$-U_{0}$};
+  \draw (opGnd) -- ++(0,-0.2) -| ++(0.3,-0.1) \cnode{gnd};
+  \gnd{(gnd)}
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{OP-AMP}
+
+\begin{verbatim}
+\opamp{name}{position}
+\end{verbatim}
+node endings: Out: output, InMinus: n-input, InPlus: p-input,
+              UbattPlus: positive power supply,
+              UbattMinus: negative power supply
+              Gnd: ground
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\opamp{op}{(0,0)}
+\draw (opOut) -- ++(0.5,0);
+\draw (opInMinus) -- ++(-0.5,0);
+\draw (opInPlus) -- ++(-0.5,0);
+\draw (opUbattPlus) -- ++(0,0.3) node [above]{$+U_{0}$};
+\draw (opUbattMinus) -- ++(0,-0.3) node [below]{$-U_{0}$};
+\draw (opGnd) -- ++(0,-0.2) -| ++(0.3,-0.1) \cnode{gnd};
+\gnd{(gnd)}
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \opamp{op}{(0,0)}
+  \draw (opOut) -- ++(0.5,0);
+  \draw (opInMinus) -- ++(-0.5,0);
+  \draw (opInPlus) -- ++(-0.5,0);
+  \draw (opUbattPlus) -- ++(0,0.3) node [above]{$+U_{0}$};
+  \draw (opUbattMinus) -- ++(0,-0.3) node [below]{$-U_{0}$};
+  \draw (opGnd) -- ++(0,-0.2) -| ++(0.3,-0.1) \cnode{gnd};
+  \gnd{(gnd)}
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{OP-AMP, N-Input above P-Input}
+
+\begin{verbatim}
+\opampInv{name}{position}
+\end{verbatim}
+node endings: Out: output, InMinus: n-input, InPlus: p-input,
+              UbattPlus: positive power supply,
+              UbattMinus: negative power supply
+              Gnd: ground
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\opampInv{opamp}{(0,0)}
+\draw (opampOut) -- ++(0.5,0);
+\draw (opInMinus) -- ++(-0.5,0);
+\draw (opInPlus) -- ++(-0.5,0);
+\draw (opUbattPlus) -- ++(0,0.3) node [above]{$+U_{0}$};
+\draw (opUbattMinus) -- ++(0,-0.3) node [below]{$-U_{0}$};
+\draw (opGnd) -- ++(0,-0.2) -| ++(0.3,-0.1) \cnode{gnd};
+\gnd{(gnd)}
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \opampInv{opamp}{(0,0)}
+  \draw (opampOut) -- ++(0.5,0);
+  \draw (opInMinus) -- ++(-0.5,0);
+  \draw (opInPlus) -- ++(-0.5,0);
+  \draw (opUbattPlus) -- ++(0,0.3) node [above]{$+U_{0}$};
+  \draw (opUbattMinus) -- ++(0,-0.3) node [below]{$-U_{0}$};
+  \draw (opGnd) -- ++(0,-0.2) -| ++(0.3,-0.1) \cnode{gnd};
+  \gnd{(gnd)}
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{General Amplifier}
+
+\begin{verbatim}
+\amplifier{name}{position}
+\end{verbatim}
+node endings: OutPlus: p-output OutMinus: n-output,
+              InMinus: n-input, InPlus: p-input,
+              UbattPlus: positive power supply,
+              UbattMinus: negative power supply
+              Gnd: ground
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\amplifier{a}{(0,0)}
+\draw (aOutPlus) -- ++(0.5,0);
+\draw (aOutMinus) -- ++(0.5,0);
+\draw (aInMinus) -- ++(-0.5,0);
+\draw (aInPlus) -- ++(-0.5,0);
+\draw (aUBattPlus) -- ++(0,0.3) node [above]{$+U_{0}$};
+\draw (aUBattMinus) -- ++(0,-0.3) node [below]{$-U_{0}$};
+\draw (aGnd) -- ++(0,-0.2) -| ++(0.3,-0.1) \cnode{gnd};
+\gnd{(gnd)}
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \amplifier{a}{(0,0)}
+  \draw (aOutPlus) -- ++(0.5,0);
+  \draw (aOutMinus) -- ++(0.5,0);
+  \draw (aInMinus) -- ++(-0.5,0);
+  \draw (aInPlus) -- ++(-0.5,0);
+  \draw (aUBattPlus) -- ++(0,0.3) node [above]{$+U_{0}$};
+  \draw (aUBattMinus) -- ++(0,-0.3) node [below]{$-U_{0}$};
+  \draw (aGnd) -- ++(0,-0.2) -| ++(0.3,-0.1) \cnode{gnd};
+  \gnd{(gnd)}
+
+\end{tikzpicture}
+\end{minipage}
+
+\section{Amplifiers}
+
+\subsection{Amplifier, Standardized Symbol}
+
+\begin{verbatim}
+\ampNorm{name}{position}{amplification factor}
+\end{verbatim}
+node endings: Out: output, InMinus: n-input, InPlus: p-input,
+              UbattPlus: positive power supply,
+              UbattMinus: negative power supply
+              Gnd: ground
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\ampNorm{amp}{(0,0)}{$k$}
+\draw (ampOut) -- ++(0.5,0);
+\draw (ampInMinus) -- ++(-0.5,0);
+\draw (ampInPlus) -- ++(-0.5,0);
+\draw (ampUbattPlus) -- ++(0,0.3) node [above]{$+U_{0}$};
+\draw (ampUbattMinus) -- ++(0,-0.3) node [below]{$-U_{0}$};
+\draw (ampGnd) -- ++(0,-0.2) -| ++(0.3,-0.1) \cnode{gnd};
+\gnd{(gnd)}
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \ampNorm{amp}{(0,0)}{$k$}
+  \draw (ampOut) -- ++(0.5,0);
+  \draw (ampInMinus) -- ++(-0.5,0);
+  \draw (ampInPlus) -- ++(-0.5,0);
+  \draw (ampUbattPlus) -- ++(0,0.3) node [above]{$+U_{0}$};
+  \draw (ampUbattMinus) -- ++(0,-0.3) node [below]{$-U_{0}$};
+  \draw (ampGnd) -- ++(0,-0.2) -| ++(0.3,-0.1) \cnode{gnd};
+  \gnd{(gnd)}
+
+\end{tikzpicture}
+\end{minipage}
+
+\section{Logic Gates}
+
+\subsection{Inversion Symbol for Logic Gates Outputs}
+
+\begin{verbatim}
+\NOTcircle{name}{position}
+\end{verbatim}
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\draw (0,0) -- (0,1);
+\NOTcircle{n}{(0,0.5)}
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \draw (0,0) -- (0,1);
+  \NOTcircle{n}{(0,0.5)}
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Logic Gate Symbol, IEC Standard}
+
+\begin{verbatim}
+\LogicGateIEC{name}{position}
+\end{verbatim}
+node endings: In: input, Out: output,
+              InN: north input, InS: south input,
+              N: north, S: south
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\LogicGateIEC{g}{(0,0)}
+\draw (gIn) -- ++(-0.2,0);
+\draw (gOut) -- ++(0.5,0);
+\draw (gInN) -- ++(-0.5,0);
+\draw (gInS) -- ++(-0.5,0);
+\draw (gN) -- ++(0,0.2);
+\draw (gS) -- ++(0,-0.2);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \LogicGateIEC{g}{(0,0)}
+  \draw (gIn) -- ++(-0.2,0);
+  \draw (gOut) -- ++(0.5,0);
+  \draw (gInN) -- ++(-0.5,0);
+  \draw (gInS) -- ++(-0.5,0);
+  \draw (gN) -- ++(0,0.2);
+  \draw (gS) -- ++(0,-0.2);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Logic AND Gate Symbol}
+
+\begin{verbatim}
+\GateAND{name}{position}
+\end{verbatim}
+node endings: In: input, Out: output,
+              InN: north input, InS: south input,
+              N: north, S: south
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\GateAND{g}{(0,0)}
+\draw (gOut) -- ++(0.5,0);
+\draw (gInN) -- ++(-0.5,0);
+\draw (gInS) -- ++(-0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \GateAND{g}{(0,0)}
+  \draw (gOut) -- ++(0.5,0);
+  \draw (gInN) -- ++(-0.5,0);
+  \draw (gInS) -- ++(-0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Logic NAND Gate Symbol}
+
+\begin{verbatim}
+\GateNAND{name}{position}
+\end{verbatim}
+node endings: In: input, Out: output,
+              InN: north input, InS: south input,
+              N: north, S: south
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\GateNAND{g}{(0,0)}
+\draw (gOut) -- ++(0.5,0);
+\draw (gInN) -- ++(-0.5,0);
+\draw (gInS) -- ++(-0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \GateNAND{g}{(0,0)}
+  \draw (gOut) -- ++(0.5,0);
+  \draw (gInN) -- ++(-0.5,0);
+  \draw (gInS) -- ++(-0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Logic OR Gate Symbol}
+
+\begin{verbatim}
+\GateOR{name}{position}
+\end{verbatim}
+node endings: In: input, Out: output,
+              InN: north input, InS: south input,
+              N: north, S: south
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\GateOR{g}{(0,0)}
+\draw (gOut) -- ++(0.5,0);
+\draw (gInN) -- ++(-0.5,0);
+\draw (gInS) -- ++(-0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \GateOR{g}{(0,0)}
+  \draw (gOut) -- ++(0.5,0);
+  \draw (gInN) -- ++(-0.5,0);
+  \draw (gInS) -- ++(-0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Logic NOR Gate Symbol}
+
+\begin{verbatim}
+\GateNOR{name}{position}
+\end{verbatim}
+node endings: In: input, Out: output,
+              InN: north input, InS: south input,
+              N: north, S: south
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\GateNOR{g}{(0,0)}
+\draw (gOut) -- ++(0.5,0);
+\draw (gInN) -- ++(-0.5,0);
+\draw (gInS) -- ++(-0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \GateNOR{g}{(0,0)}
+  \draw (gOut) -- ++(0.5,0);
+  \draw (gInN) -- ++(-0.5,0);
+  \draw (gInS) -- ++(-0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Logic NOT Gate Symbol}
+
+\begin{verbatim}
+\GateNOT{name}{position}
+\end{verbatim}
+node endings: In: input, Out: output,
+              InN: north input, InS: south input,
+              N: north, S: south
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\GateNOT{g}{(0,0)}
+\draw (gOut) -- ++(0.5,0);
+\draw (gIn) -- ++(-0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \GateNOT{g}{(0,0)}
+  \draw (gOut) -- ++(0.5,0);
+  \draw (gIn) -- ++(-0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Logic XOR Gate Symbol}
+
+\begin{verbatim}
+\GateXOR{name}{position}
+\end{verbatim}
+node endings: In: input, Out: output,
+              InN: north input, InS: south input,
+              N: north, S: south
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\GateXOR{g}{(0,0)}
+\draw (gOut) -- ++(0.5,0);
+\draw (gInN) -- ++(-0.5,0);
+\draw (gInS) -- ++(-0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \GateXOR{g}{(0,0)}
+  \draw (gOut) -- ++(0.5,0);
+  \draw (gInN) -- ++(-0.5,0);
+  \draw (gInS) -- ++(-0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Logic XNOR Gate Symbol}
+
+\begin{verbatim}
+\GateXNOR{name}{position}
+\end{verbatim}
+node endings: In: input, Out: output,
+              InN: north input, InS: south input,
+              N: north, S: south
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\GateXNOR{g}{(0,0)}
+\draw (gOut) -- ++(0.5,0);
+\draw (gInN) -- ++(-0.5,0);
+\draw (gInS) -- ++(-0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \GateXNOR{g}{(0,0)}
+  \draw (gOut) -- ++(0.5,0);
+  \draw (gInN) -- ++(-0.5,0);
+  \draw (gInS) -- ++(-0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Logic AND Gate, ANSI Symbol}
+
+\begin{verbatim}
+\ANSIGateAND{name}{position}
+\end{verbatim}
+node endings: Out: output,
+              InN: north input, InS: south input,
+              N: north, S: south
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\ANSIGateAND{g}{(0,0)}
+\draw (gOut) -- ++(0.5,0);
+\draw (gInN) -- ++(-0.5,0);
+\draw (gInS) -- ++(-0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \ANSIGateAND{g}{(0,0)}
+  \draw (gOut) -- ++(0.5,0);
+  \draw (gInN) -- ++(-0.5,0);
+  \draw (gInS) -- ++(-0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Logic NAND Gate, ANSI Symbol}
+
+\begin{verbatim}
+\ANSIGateNAND{name}{position}
+\end{verbatim}
+node endings: Out: output,
+              InN: north input, InS: south input,
+              N: north, S: south
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\ANSIGateNAND{g}{(0,0)}
+\draw (gOut) -- ++(0.5,0);
+\draw (gInN) -- ++(-0.5,0);
+\draw (gInS) -- ++(-0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \ANSIGateNAND{g}{(0,0)}
+  \draw (gOut) -- ++(0.5,0);
+  \draw (gInN) -- ++(-0.5,0);
+  \draw (gInS) -- ++(-0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Logic OR Gate, ANSI Symbol}
+
+\begin{verbatim}
+\ANSIGateOR{name}{position}
+\end{verbatim}
+node endings: Out: output,
+              InN: north input, InS: south input,
+              N: north, S: south
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\ANSIGateOR{g}{(0,0)}
+\draw (gOut) -- ++(0.5,0);
+\draw (gInN) -- ++(-0.5,0);
+\draw (gInS) -- ++(-0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \ANSIGateOR{g}{(0,0)}
+  \draw (gOut) -- ++(0.5,0);
+  \draw (gInN) -- ++(-0.5,0);
+  \draw (gInS) -- ++(-0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Logic NOR Gate, ANSI Symbol}
+
+\begin{verbatim}
+\ANSIGateNOR{name}{position}
+\end{verbatim}
+node endings: Out: output,
+              InN: north input, InS: south input,
+              N: north, S: south
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\ANSIGateNOR{g}{(0,0)}
+\draw (gOut) -- ++(0.5,0);
+\draw (gInN) -- ++(-0.5,0);
+\draw (gInS) -- ++(-0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \ANSIGateNOR{g}{(0,0)}
+  \draw (gOut) -- ++(0.5,0);
+  \draw (gInN) -- ++(-0.5,0);
+  \draw (gInS) -- ++(-0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Logic NOT Gate, ANSI Symbol}
+
+\begin{verbatim}
+\ANSIGateNOT{name}{position}
+\end{verbatim}
+node endings: Out: output, In: input,
+              N: north, S: south
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\ANSIGateNOT{g}{(0,0)}
+\draw (gOut) -- ++(0.5,0);
+\draw (gIn) -- ++(-0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \ANSIGateNOT{g}{(0,0)}
+  \draw (gOut) -- ++(0.5,0);
+  \draw (gIn) -- ++(-0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Logic XOR Gate, ANSI Symbol}
+
+\begin{verbatim}
+\ANSIGateXOR{name}{position}
+\end{verbatim}
+node endings: Out: output,
+              InN: north input, InS: south input,
+              N: north, S: south
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\ANSIGateXOR{g}{(0,0)}
+\draw (gOut) -- ++(0.5,0);
+\draw (gInN) -- ++(-0.5,0);
+\draw (gInS) -- ++(-0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \ANSIGateXOR{g}{(0,0)}
+  \draw (gOut) -- ++(0.5,0);
+  \draw (gInN) -- ++(-0.5,0);
+  \draw (gInS) -- ++(-0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Logic XNOR Gate, ANSI Symbol}
+
+\begin{verbatim}
+\ANSIGateXNOR{name}{position}
+\end{verbatim}
+node endings: Out: output,
+              InN: north input, InS: south input,
+              N: north, S: south
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\ANSIGateXNOR{g}{(0,0)}
+\draw (gOut) -- ++(0.5,0);
+\draw (gInN) -- ++(-0.5,0);
+\draw (gInS) -- ++(-0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \ANSIGateXNOR{g}{(0,0)}
+  \draw (gOut) -- ++(0.5,0);
+  \draw (gInN) -- ++(-0.5,0);
+  \draw (gInS) -- ++(-0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\section{Flip-Flops}
+
+\subsection{General Flip-Flop Symbol}
+
+\begin{verbatim}
+\FlipFlop{name}{position}
+\end{verbatim}
+node endings: OutN: north output, OutS: south output
+              InN: north input, InS: south input,
+              N: north, S: south
+              W: middle input
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\FlipFlop{ff}{(0,0)}
+\draw (ffInN) -- ++(-0.5,0) (ffInS) -- ++(-0.5,0);
+\draw (ffOutN) -- ++(0.5,0) (ffOutS) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \FlipFlop{ff}{(0,0)}
+  \draw (ffInN) -- ++(-0.5,0) (ffInS) -- ++(-0.5,0);
+  \draw (ffOutN) -- ++(0.5,0) (ffOutS) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{General Flip-Flop Symbol for Negative Logic}
+
+\begin{verbatim}
+\FlipFlopNegLogic{name}{position}
+\end{verbatim}
+node endings: OutN: north output, OutS: south output
+              InN: north input, InS: south input,
+              N: north, S: south
+              W: middle input
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\FlipFlopNegLogic{ff}{(0,0)}
+\draw (ffInN) -- ++(-0.5,0) (ffInS) -- ++(-0.5,0);
+\draw (ffOutN) -- ++(0.5,0) (ffOutS) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \FlipFlopNegLogic{ff}{(0,0)}
+  \draw (ffInN) -- ++(-0.5,0) (ffInS) -- ++(-0.5,0);
+  \draw (ffOutN) -- ++(0.5,0) (ffOutS) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Flip-Flop Changing on Rising Edge}
+
+\begin{verbatim}
+\FlipFlopRisingEdge{name}{position}
+\end{verbatim}
+node endings: OutN: north output, OutS: south output
+              InN: north input, InS: south input,
+              N: north, S: south
+              W: middle input
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\FlipFlopRisingEdge{ff}{(0,0)}
+\draw (ffInN) -- ++(-0.5,0) (ffInS) -- ++(-0.5,0);
+\draw (ffW) -- ++(-0.5,0);
+\draw (ffOutN) -- ++(0.5,0) (ffOutS) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \FlipFlopRisingEdge{ff}{(0,0)}
+  \draw (ffInN) -- ++(-0.5,0) (ffInS) -- ++(-0.5,0);
+  \draw (ffW) -- ++(-0.5,0);
+  \draw (ffOutN) -- ++(0.5,0) (ffOutS) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Flip-Flop Changing on Falling Edge}
+
+\begin{verbatim}
+\FlipFlopFallingEdge{name}{position}
+\end{verbatim}
+node endings: OutN: north output, OutS: south output
+              InN: north input, InS: south input,
+              N: north, S: south
+              W: middle input
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\FlipFlopFallingEdge{ff}{(0,0)}
+\draw (ffInN) -- ++(-0.5,0) (ffInS) -- ++(-0.5,0);
+\draw (ffInC) -- ++(-0.5,0);
+\draw (ffOutN) -- ++(0.5,0) (ffOutS) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \FlipFlopFallingEdge{ff}{(0,0)}
+  \draw (ffInN) -- ++(-0.5,0) (ffInS) -- ++(-0.5,0);
+  \draw (ffInC) -- ++(-0.5,0);
+  \draw (ffOutN) -- ++(0.5,0) (ffOutS) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{RS Flip-Flop}
+
+\begin{verbatim}
+\RSFlipFlop{name}{position}
+\end{verbatim}
+node endings: OutN: north output, OutS: south output
+              InN: north input, InS: south input,
+              N: north, S: south
+              W: middle input
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\RSFlipFlop{ff}{(0,0)}
+\draw (ffInN) -- ++(-0.5,0) (ffInS) -- ++(-0.5,0);
+\draw (ffOutN) -- ++(0.5,0) (ffOutS) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \RSFlipFlop{ff}{(0,0)}
+  \draw (ffInN) -- ++(-0.5,0) (ffInS) -- ++(-0.5,0);
+  \draw (ffOutN) -- ++(0.5,0) (ffOutS) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{RS NAND Flip-Flop (Negative Logic)}
+
+\begin{verbatim}
+\RSNANDFlipFlop{name}{position}
+\end{verbatim}
+node endings: OutN: north output, OutS: south output
+              InN: north input, InS: south input,
+              N: north, S: south
+              W: middle input
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\RSNANDFlipFlop{ff}{(0,0)}
+\draw (ffInN) -- ++(-0.5,0) (ffInS) -- ++(-0.5,0);
+\draw (ffOutN) -- ++(0.5,0) (ffOutS) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \RSNANDFlipFlop{ff}{(0,0)}
+  \draw (ffInN) -- ++(-0.5,0) (ffInS) -- ++(-0.5,0);
+  \draw (ffOutN) -- ++(0.5,0) (ffOutS) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{RS Flip-Flop Changing on Rising Edge}
+
+\begin{verbatim}
+\RSFlipFlopRisingEdge{name}{position}
+\end{verbatim}
+node endings: OutN: north output, OutS: south output
+              InN: north input, InS: south input,
+              N: north, S: south
+              W: middle input
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\RSFlipFlopRisingEdge{ff}{(0,0)}
+\draw (ffInN) -- ++(-0.5,0) (ffInS) -- ++(-0.5,0);
+\draw (ffW) -- ++(-0.5,0);
+\draw (ffOutN) -- ++(0.5,0) (ffOutS) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \RSFlipFlopRisingEdge{ff}{(0,0)}
+  \draw (ffInN) -- ++(-0.5,0) (ffInS) -- ++(-0.5,0);
+  \draw (ffW) -- ++(-0.5,0);
+  \draw (ffOutN) -- ++(0.5,0) (ffOutS) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{RS Flip-Flop Changing on Falling Edge}
+
+\begin{verbatim}
+\RSFlipFlopFallingEdge{name}{position}
+\end{verbatim}
+node endings: OutN: north output, OutS: south output
+              InN: north input, InS: south input,
+              N: north, S: south
+              W: middle input
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\RSFlipFlopFallingEdge{ff}{(0,0)}
+\draw (ffInN) -- ++(-0.5,0) (ffInS) -- ++(-0.5,0);
+\draw (ffInC) -- ++(-0.5,0);
+\draw (ffOutN) -- ++(0.5,0) (ffOutS) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \RSFlipFlopFallingEdge{ff}{(0,0)}
+  \draw (ffInN) -- ++(-0.5,0) (ffInS) -- ++(-0.5,0);
+  \draw (ffInC) -- ++(-0.5,0);
+  \draw (ffOutN) -- ++(0.5,0) (ffOutS) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{JK Flip-Flop Changing on Rising Edge}
+
+\begin{verbatim}
+\JKFlipFlopRisingEdge{name}{position}
+\end{verbatim}
+node endings: OutN: north output, OutS: south output
+              InN: north input, InS: south input,
+              N: north, S: south
+              W: middle input
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\JKFlipFlopRisingEdge{ff}{(0,0)}
+\draw (ffInN) -- ++(-0.5,0) (ffInS) -- ++(-0.5,0);
+\draw (ffW) -- ++(-0.5,0);
+\draw (ffOutN) -- ++(0.5,0) (ffOutS) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \JKFlipFlopRisingEdge{ff}{(0,0)}
+  \draw (ffInN) -- ++(-0.5,0) (ffInS) -- ++(-0.5,0);
+  \draw (ffW) -- ++(-0.5,0);
+  \draw (ffOutN) -- ++(0.5,0) (ffOutS) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{JK Master-Slave Flip-Flop}
+
+\begin{verbatim}
+\JKMSFlipFlop{name}{position}
+\end{verbatim}
+node endings: OutN: north output, OutS: south output
+              InN: north input, InS: south input,
+              N: north, S: south
+              W: middle input
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\JKMSFlipFlop{ff}{(0,0)}
+\draw (ffInN) -- ++(-0.5,0) (ffInS) -- ++(-0.5,0);
+\draw (ffW) -- ++(-0.5,0);
+\draw (ffOutN) -- ++(0.5,0) (ffOutS) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \JKMSFlipFlop{ff}{(0,0)}
+  \draw (ffInN) -- ++(-0.5,0) (ffInS) -- ++(-0.5,0);
+  \draw (ffW) -- ++(-0.5,0);
+  \draw (ffOutN) -- ++(0.5,0) (ffOutS) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{D Flip-Flop Changing on Rising Edge}
+
+\begin{verbatim}
+\DFlipFlopRisingEdge{name}{position}
+\end{verbatim}
+node endings: OutN: north output, OutS: south output
+              InN: north input, InS: south input,
+              N: north, S: south
+              W: middle input
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\DFlipFlopRisingEdge{ff}{(0,0)}
+\draw (ffInN) -- ++(-0.5,0);
+\draw (ffW) -- ++(-0.5,0);
+\draw (ffOutN) -- ++(0.5,0) (ffOutS) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \DFlipFlopRisingEdge{ff}{(0,0)}
+  \draw (ffInN) -- ++(-0.5,0);
+  \draw (ffW) -- ++(-0.5,0);
+  \draw (ffOutN) -- ++(0.5,0) (ffOutS) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{T Flip-Flop Changing on Rising Edge}
+
+\begin{verbatim}
+\TFlipFlopRisingEdge{name}{position}
+\end{verbatim}
+node endings: OutN: north output, OutS: south output
+              InN: north input, InS: south input,
+              N: north, S: south
+              W: middle input
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\TFlipFlopRisingEdge{ff}{(0,0)}
+\draw (ffW) -- ++(-0.5,0);
+\draw (ffOutN) -- ++(0.5,0) (ffOutS) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \TFlipFlopRisingEdge{ff}{(0,0)}
+  \draw (ffW) -- ++(-0.5,0);
+  \draw (ffOutN) -- ++(0.5,0) (ffOutS) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{T Flip-Flop Changing on Falling Edge}
+
+\begin{verbatim}
+\TFlipFlopFallingEdge{name}{position}
+\end{verbatim}
+node endings: OutN: north output, OutS: south output
+              InN: north input, InS: south input,
+              N: north, S: south
+              W: middle input
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\TFlipFlopFallingEdge{ff}{(0,0)}
+\draw (ffInC) -- ++(-0.5,0);
+\draw (ffOutN) -- ++(0.5,0) (ffOutS) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \TFlipFlopFallingEdge{ff}{(0,0)}
+  \draw (ffInC) -- ++(-0.5,0);
+  \draw (ffOutN) -- ++(0.5,0) (ffOutS) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Monoflop}
+
+\begin{verbatim}
+\Monoflop{name}{position}
+\end{verbatim}
+node endings: OutN: north output, OutS: south output
+              InN: north input, InS: south input,
+              N: north, S: south
+              W: middle input
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\Monoflop{ff}{(0,0)}
+\draw (ffInN) -- ++(-0.5,0) (ffInS) -- ++(-0.5,0);
+\draw (ffOutN) -- ++(0.5,0) (ffOutS) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \Monoflop{ff}{(0,0)}
+  \draw (ffInN) -- ++(-0.5,0) (ffInS) -- ++(-0.5,0);
+  \draw (ffOutN) -- ++(0.5,0) (ffOutS) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Switch, West-East Direction}
+
+\begin{verbatim}
+\switchWE{name}{position}
+\end{verbatim}
+node endings: W: west, E: east, N: north connection
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\switchWE{s}{(0,0)}
+\draw (sW) -- ++(-0.5,0) (sE) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \switchWE{s}{(0,0)}
+  \draw (sW) -- ++(-0.5,0) (sE) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Closed Switch, West-East Direction}
+
+\begin{verbatim}
+\switchClosedWE{name}{position}
+\end{verbatim}
+node endings: W: west, E: east, N: north connection
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\switchClosedWE{s}{(0,0)}
+\draw (sW) -- ++(-0.5,0) (sE) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \switchClosedWE{s}{(0,0)}
+  \draw (sW) -- ++(-0.5,0) (sE) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Switch, East-West Direction}
+
+\begin{verbatim}
+\switchEW{name}{position}
+\end{verbatim}
+node endings: W: west, E: east, N: north connection
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\switchEW{s}{(0,0)}
+\draw (sW) -- ++(-0.5,0) (sE) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \switchEW{s}{(0,0)}
+  \draw (sW) -- ++(-0.5,0) (sE) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Closed Switch, East-West Direction}
+
+\begin{verbatim}
+\switchClosedEW{name}{position}
+\end{verbatim}
+node endings: W: west, E: east, N: north connection
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\switchClosedEW{s}{(0,0)}
+\draw (sW) -- ++(-0.5,0) (sE) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \switchClosedEW{s}{(0,0)}
+  \draw (sW) -- ++(-0.5,0) (sE) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Switch, South-North Direction}
+
+\begin{verbatim}
+\switchSN{name}{position}
+\end{verbatim}
+node endings: S: south, N: north, W: west connection
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\switchSN{s}{(0,0)}
+\draw (sS) -- ++(0,-0.5) (sN) -- ++(0,0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \switchSN{s}{(0,0)}
+  \draw (sS) -- ++(0,-0.5) (sN) -- ++(0,0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Closed Switch, South-North Direction}
+
+\begin{verbatim}
+\switchClosedSN{name}{position}
+\end{verbatim}
+node endings: S: south, N: north, W: west connection
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\switchClosedSN{s}{(0,0)}
+\draw (sS) -- ++(0,-0.5) (sN) -- ++(0,0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \switchClosedSN{s}{(0,0)}
+  \draw (sS) -- ++(0,-0.5) (sN) -- ++(0,0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Pushbutton, South-North Direction}
+
+\begin{verbatim}
+\pushbuttonSN{name}{position}
+\end{verbatim}
+node endings: S: south, N: north, W: west connection
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\pushbuttonSN{b}{(0,0)}
+\draw (bS) -- ++(0,-0.5) (bN) -- ++(0,0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \pushbuttonSN{b}{(0,0)}
+  \draw (bS) -- ++(0,-0.5) (bN) -- ++(0,0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\section{Miscellaneous}
+
+\subsection{Ground as Symbol}
+
+\begin{verbatim}
+\gnd{position}
+\end{verbatim}
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\draw (0,0) -- (1,0) \junction{gnd};
+\gnd{(gnd)}
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \draw (0,0) -- (1,0) \junction{gnd};
+  \gnd{(gnd)}
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Ground as Continued Drawing}
+
+\begin{verbatim}
+\gndNow
+\end{verbatim}
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\draw (0,0) -- (1,0) \junction{foo} \gndNow;
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \draw (0,0) -- (1,0) \junction{foo} \gndNow;
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Connecting Terminal}
+
+\begin{verbatim}
+\terminal{name}
+\end{verbatim}
+node endings: Con: use terminal as connector (no space when wired)
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\renewcommand{\fillcolor}{white}
+\draw (0,0) -- ++(1,0) \terminal{t};
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \renewcommand{\fillcolor}{white}
+  \draw (0,0) -- ++(1,0) \terminal{t};
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Junction (Black Filled Circle)}
+
+\begin{verbatim}
+\junction{name}
+\end{verbatim}
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\draw (0,0) -- (1,0);
+\draw (0.5,0) \junction{j} -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \draw (0,0) -- (1,0);
+  \draw (0.5,0) \junction{j} -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Junction in the Middle of a Path}
+
+\begin{verbatim}
+\junction{name}
+\end{verbatim}
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\draw (0,0) -- (1,0) \mjunction{j} (j) -- ++(1,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \draw (0,0) -- (1,0) \mjunction{j} (j) -- ++(1,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Connection Node (for Referencing, not Visible)}
+
+\begin{verbatim}
+\cnode{name}
+\end{verbatim}
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\draw (0,0) -- (0.5,0) \cnode{c} -- (0.5,0.5);
+\draw (c) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \draw (0,0) -- (0.5,0) \cnode{c} -- (0.5,0.5);
+  \draw (c) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Midway Connection Node}
+
+\begin{verbatim}
+\mnode{name}
+\end{verbatim}
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\draw (0,0) -- (1,0) \mnode{m};
+\draw (m) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \draw (0,0) -- (1,0) \mnode{m};
+  \draw (m) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Invisible Node with Terminal Node Properties (Used with Voltage Arrows)}
+
+\begin{verbatim}
+\node{name}
+\end{verbatim}
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\draw (0,0) -- ++(1,0) \tnode{t};
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \draw (0,0) -- ++(1,0) \tnode{t};
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Speaker}
+
+\begin{verbatim}
+\speakerWE{name}{position}
+\end{verbatim}
+node endings: N: north, S: south,
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\speakerWE{sp}{(0,0)}
+\draw (spN) -- ++(0,0.5) (spS) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \speakerWE{sp}{(0,0)}
+  \draw (spN) -- ++(0,0.5) (spS) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Bulb}
+
+\begin{verbatim}
+\bulb{name}{position}
+\end{verbatim}
+node endings: N: north, S: south, W: west, E: east
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\bulb{b}{(0,0)}
+\draw (bN) -- ++(0,0.5) (bS) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \bulb{b}{(0,0)}
+  \draw (bN) -- ++(0,0.5) (bS) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Multimeter (Circle for Voltmeter or Ammeter)}
+
+\begin{verbatim}
+\multimeter{name}{position}{letter}
+\end{verbatim}
+node endings: N: north, S: south, W: west, E: east
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\multimeter{m}{(0,0)}{M}
+\draw (mN) -- ++(0,0.5) (mS) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \multimeter{m}{(0,0)}{M}
+  \draw (mN) -- ++(0,0.5) (mS) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Voltmeter}
+
+\begin{verbatim}
+\voltmeter{name}{position}
+\end{verbatim}
+node endings: N: north, S: south, W: west, E: east
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\voltmeter{v}{(0,0)}
+\draw (vN) -- ++(0,0.5) (vS) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \voltmeter{v}{(0,0)}
+  \draw (vN) -- ++(0,0.5) (vS) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Ammeter}
+
+\begin{verbatim}
+\ammeter{name}{position}
+\end{verbatim}
+node endings: N: north, S: south, W: west, E: east
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\ammeter{a}{(0,0)}
+\draw (vW) -- ++(-0.5,0) (vE) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \ammeter{a}{(0,0)}
+  \draw (vW) -- ++(-0.5,0) (vE) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Brushless DC Electric Motor}
+
+\begin{verbatim}
+\BLDCMotor{name}{position}{pin1}{pin2}
+\end{verbatim}
+node endings: N: north, S: south, W: west, E: east
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\BLDCMotor{motor}{(0,0)}{$A_1$}{$A_2$}
+\draw (motorN) -- ++(0,0.5);
+\draw (motorS) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \BLDCMotor{motor}{(0,0)}{$A_1$}{$A_2$}
+  \draw (motorN) -- ++(0,0.5);
+  \draw (motorS) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Brushless DC Electric Generator}
+
+\begin{verbatim}
+\BLDCGenerator{name}{position}{pin1}{pin2}
+\end{verbatim}
+node endings: N: north, S: south, W: west, E: east
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\BLDCGenerator{gen}{(0,0)}{$A_1$}{$A_2$}
+\draw (genN) -- ++(0,0.5);
+\draw (genS) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \BLDCGenerator{gen}{(0,0)}{$A_1$}{$A_2$}
+  \draw (genN) -- ++(0,0.5);
+  \draw (genS) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Brushes for Electric Motors and Generators}
+
+\begin{verbatim}
+\brushes{position}
+\end{verbatim}
+Only usful in combination with motors or generators.
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\brushes{(0,0)}
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \brushes{(0,0)}
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Brushless DC Electric Motor with Permanent Magnet}
+
+\begin{verbatim}
+\permanentMagnetBLDCMotor{name}{position}{pin1}{pin2}
+\end{verbatim}
+node endings: N: north, S: south, W: west, E: east
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\permanentMagnetBLDCMotor{motor}{(0,0)}{$A_1$}{$A_2$}
+\draw (motorN) -- ++(0,0.5);
+\draw (motorS) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \permanentMagnetBLDCMotor{motor}{(0,0)}{$A_1$}{$A_2$}
+  \draw (motorN) -- ++(0,0.5);
+  \draw (motorS) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{DC Electric Motor with Permanent Magnet}
+
+\begin{verbatim}
+\permanentMagnetDCMotor{name}{position}{pin1}{pin2}
+\end{verbatim}
+node endings: N: north, S: south, W: west, E: east
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\permanentMagnetDCMotor{motor}{(0,0)}{$A_1$}{$A_2$}
+\draw (motorN) -- ++(0,0.5);
+\draw (motorS) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \permanentMagnetDCMotor{motor}{(0,0)}{$A_1$}{$A_2$}
+  \draw (motorN) -- ++(0,0.5);
+  \draw (motorS) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Shunt DC Electric Motor}
+
+\begin{verbatim}
+\shuntDCMotor{name}{position}
+\end{verbatim}
+node endings: N: north, S: south, W: west, E: east
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\shuntDCMotor{motor}{(0,0)}
+\draw (motorN) -- ++(0,0.5);
+\draw (motorS) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \shuntDCMotor{motor}{(0,0)}
+  \draw (motorN) -- ++(0,0.5);
+  \draw (motorS) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Series DC Electric Motor}
+
+\begin{verbatim}
+\seriesDCMotor{name}{position}
+\end{verbatim}
+node endings: N: north, S: south, W: west, E: east
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\seriesDCMotor{motor}{(0,0)}
+\draw (motorN) -- ++(0,0.5);
+\draw (motorS) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \seriesDCMotor{motor}{(0,0)}
+  \draw (motorN) -- ++(0,0.5);
+  \draw (motorS) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\end{document}

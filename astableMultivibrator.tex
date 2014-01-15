@@ -1,0 +1,32 @@
+\begin{tikzpicture}
+  \renewcommand{\voltagecolor}{red}
+  \BJTnpnNSMirror{bjtOne}{(0,0)}
+  \path (bjtOne) ++(-0.2,0) node[left] {BC 550};
+  \BJTnpnNS{bjtTwo}{(bjtOne)++(7.8,0)}
+  \path (bjtTwo) ++(0.2,0) node [right] {BC 550};
+  \ledNSW{ledOne}{(bjtOneC)++(0,1.8)}{$D_{1}$}
+  \ledNSE{ledTwo}{(bjtTwoC |- ledOne)}{$D_{2}$}
+  \resistorNS{rcOne}{(ledOne)++(0,1.5)}{$R_{C,1}$}{$\SI{470}{\ohm}$}
+  \resistorNS{rcTwo}{(ledTwo |- rcOne)}{$R_{C,2}$}{$\SI{470}{\ohm}$}
+  \capacitorWE{cOne}{(ledOne)++(1.2,-1)}{$C_{1}$}{$\SI{47}{\micro\farad}$}
+  \path (cOne)++(-0.3,0.2) node {$+$};
+  \resistorNS{rOne}{(rcOne)++(2.5,0)}{}{$R_{1}$}
+  \resistorNS{rTwo}{(rcTwo)++(-2.5,0)}{$R_{2}$}{}
+  \capacitorWE{cTwo}{(ledTwo)++(-1.2,-1)}{$C_{2}$}{$\SI{47}{\micro\farad}$}
+  \path (cTwo)++(0.3,0.2) node {$+$};
+  \voltagesourceNS{u}{(ledOne |- cOne)++(-2,0)}{left}{$U_{0}=\SI{5}{\volt}$}
+  \draw (rcOneN) -- ++(0,0.5) \junction{jrcN} -| (uN);
+  \draw (bjtOneE) -- ++(0,-0.5) \junction{jbjtE} -| (uS);
+  \draw (jrcN) -| (rcTwoN);
+  \draw (jbjtE) -| (bjtTwoE);
+  \draw (rOneN) -- (rOne |- jrcN) \junction{jrOneN};
+  \draw (rTwoN) -- (rTwo |- jrcN) \junction{jrTwoN};
+  \draw (rcOneS) -- (ledOneA) (ledOneC) -- (bjtOneC);
+  \draw (rcTwoS) -- (ledTwoA) (ledTwoC) -- (bjtTwoC);
+  \draw (bjtOneC |- cOne) \junction{jbjtOneC} -- (cOneW);
+  \draw (bjtTwoC |- cTwo) \junction{jbjtTwoC} -- (cTwoE);
+  \draw (cOneE) -- (cOne -| rOne) \junction{jcOneW} -- (rOneS);
+  \draw (cTwoW) -- (cTwo -| rTwo) \junction{jcTwoE} -- (rTwoS);
+  \draw (jcOneW) -- (rTwo |- bjtTwo) -- (bjtTwoB);
+  \draw (jcTwoE) -- (rOne |- bjtOne) -- (bjtOneB);
+\end{tikzpicture}

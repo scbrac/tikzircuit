@@ -1,0 +1,34 @@
+\begin{tikzpicture}
+  \renewcommand{\voltagecolor}{black}
+  \opampNormInv{op}{(0,0)}
+  \resistorWE{rOne}{(opInMinus)++(-2,0)}{$R_{1}=\SI{150}{\ohm}$}{}
+  \resistorWE{rThree}{(opInPlus-|rOne)}{}{$R_{3} = \SI{150}{\ohm}$}
+  \resistorWE{rTwo}{(op)++(0,2)}{$R_{2}$}{$\SI{1}{\mega\ohm}$}
+  \draw (rOneE) -- (opInMinus) \mjunction{jopInMinus};
+  \draw (rThreeE) -- (opInPlus) \mjunction{jopInPlus};
+  \resistorNS{rFour}{(jopInPlus)++(0,-2)}{$R_{4}$}{$\SI{1}{\mega\ohm}$}
+  \path (op) ++(-6,0) \cnode{dms};
+  \foreach \x/\y/\name in {-0.8/1.2/One, -0.8/-1.2/Two, 0.8/1.2/Three,
+                            0.8/-1.2/Four}{%
+      \resistorNS{dms\name}{(dms)++(\x,\y)}{$ $}{$ $}
+      \draw[-latex] (dms)++(\x,\y) ++(-0.4,-0.4) -- ++(0.8,0.8);
+  }
+  \draw (dmsOneN) -- ++(0,0.8) \cnode{foo};
+  \draw (dmsThreeN) -- (dmsThree|-foo) -- (foo) \mjunction{jdmsN};
+  \draw (jdmsN) -- ++(0,0.8) \terminal{tudmsPlus} node [left] {\SI{15}{\volt}};
+  \draw (dmsTwoS) -- ++(0,-0.8) \cnode{foo};
+  \draw (dmsFourS) -- (dmsFour|-foo) -- (foo) \mjunction{jdmsS};
+  \draw (jdmsS) -- ++(0,-0.5) \cnode{gnddms};
+  \gnd{(gnddms)}
+  \draw (dmsOneS) -- (dmsTwoN) (rOneW) -- (rOne-|dmsOne) \junction{jLeft};
+  \draw (dmsThreeS) -- (dmsFourN);
+  \draw (rThreeW) -- (rThree-|dmsThree) \junction{jRight};
+  \draw (jopInPlus) -- (rFourN) (rFourS) -- ++(0,-0.5) \cnode{gndRFour};
+  \gnd{(gndRFour)}
+  \draw (jopInMinus) |- (rTwoW);
+  \draw (opOut) -- ++(1,0) \junction{jopOut} |- (rTwoE);
+  \draw (jopOut) -- ++(1,0) \terminal{tuaPlus};
+  \draw (tuaPlus|-gnddms) \cnode{gndOut} -- ++(0,0.5) \terminal{tuaMinus};
+  \gnd{(gndOut)}
+  \voltagearrow{(tuaPlus)}{(tuaMinus)}{right}{$u_{a}$}
+\end{tikzpicture}
