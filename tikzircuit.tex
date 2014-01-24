@@ -214,30 +214,30 @@
     \draw[-latex,\currentcolor] #1 ++(0, 0.1) -- ++(0,-0.2) node [midway,#2] {#3};
 }
 
-\newcommand{\currentArrowSN}[3]{
+\newcommand{\currentarrowSN}[3]{
     % Current Arrow in South-North Orientation
-    % \currentArrowSN{position}{align:left|right}{text}
+    % \currentarrowSN{position}{align:left|right}{text}
     % example:
     %   \draw (0,0) -- (0,1) \mnode{ia};
-    %   \currentArrowSN{(ia)}{left}{$I$}
+    %   \currentarrowSN{(ia)}{left}{$I$}
     \draw[-latex,\currentcolor] #1 ++(0,-0.1) -- ++(0, 0.2) node [midway,#2] {#3};
 }
 
-\newcommand{\currentArrowWE}[3]{
+\newcommand{\currentarrowWE}[3]{
     % Current Arrow in West-East Orientation
-    % \currentArrowWE{position}{align:above|below}{text}
+    % \currentarrowWE{position}{align:above|below}{text}
     % example:
     %   \draw (0,0) -- (1,0) \mnode{ia};
-    %   \currentArrowWE{(ia)}{above}{$I$}
+    %   \currentarrowWE{(ia)}{above}{$I$}
     \draw[-latex,\currentcolor] #1 ++(-0.1,0) -- ++(0.2,0) node [midway,#2] {#3};
 }
 
-\newcommand{\currentArrowEW}[3]{
+\newcommand{\currentarrowEW}[3]{
     % Current Arrow in East-West Orientation
-    % \currentArrowEW{position}{align:above|below}{text}
+    % \currentarrowEW{position}{align:above|below}{text}
     % example:
     %   \draw (0,0) -- (1,0) \mnode{ia};
-    %   \currentArrowEW{(ia)}{above}{$I$}
+    %   \currentarrowEW{(ia)}{above}{$I$}
     \draw[latex-,\currentcolor] #1 ++(-0.1,0) -- ++(0.2,0) node [midway,#2] {#3};
 }
 
