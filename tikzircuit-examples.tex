@@ -2423,6 +2423,28 @@ Example:\\
 \end{tikzpicture}
 \end{minipage}
 
+\subsection{Pushbutton, West-East Direction}
+
+\begin{verbatim}
+\pushbuttonWE{name}{position}
+\end{verbatim}
+node endings: W: west, E: east, N: north connection
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\pushbuttonWE{b}{(0,0)}
+\draw (bW) -- ++(-0.5,0) (bE) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \pushbuttonWE{b}{(0,0)}
+  \draw (bW) -- ++(-0.5,0) (bE) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
 \subsection{Pushbutton, South-North Direction}
 
 \begin{verbatim}

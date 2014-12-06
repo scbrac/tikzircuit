@@ -1472,6 +1472,18 @@
     \draw (#1N) -- (#1S);
 }
 
+\newcommand{\pushbuttonWE}[2]{
+    % Pushbutton, West-East Direction
+    % \pushbuttonWE{name}{position}
+    % node endings: W: west, E: east, N: north connection
+    % example:
+    %   \pushbuttonWE{b}{(0,0)}
+    %   \draw (bW) -- ++(-0.5,0) (bE) -- ++(0.5,0);
+    \switchWE{#1}{#2}
+    \draw #2 ++(30:0.25) -- ++(0, 0.2) ++(0,0.1) -- ++(0,0.2) ++(-0.2,0)
+        -- ++(0.4,0);
+}
+
 \newcommand{\pushbuttonSN}[2]{
     % Pushbutton, South-North Direction
     % \pushbuttonSN{name}{position}
