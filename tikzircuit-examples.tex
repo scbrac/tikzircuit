@@ -944,6 +944,28 @@ Example:\\
 \end{tikzpicture}
 \end{minipage}
 
+\subsection{LED in East-West orientation, Light in North Direction}
+
+\begin{verbatim}
+\ledEWN{name}{position}{text}
+\end{verbatim}
+node endings: A: anode, C: cathode
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\ledEWN{led}{(0,0)}{$D_{1}$}
+\draw (ledA) -- ++(0.5,0) (ledC) -- ++(-0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \ledEWN{led}{(0,0)}{$D_{1}$}
+  \draw (ledA) -- ++(0.5,0) (ledC) -- ++(-0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
 \subsection{Photo Diode in North-South Orientation, Light from East}
 
 \begin{verbatim}

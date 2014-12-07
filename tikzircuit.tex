@@ -569,6 +569,18 @@
     \draw [-latex] #2 ++(-0.2,0.2) -- ++(0.2,0.2);
 }
 
+\newcommand{\ledEWN}[3]{
+    % LED in East-West orientation, Light in North Direction
+    % \ledEWN{name}{position}{text}
+    % node endings: A: anode, C: cathode
+    % example:
+    %   \ledEWN{led}{(0,0)}{$D_{1}$}
+    %   \draw (ledA) -- ++(0.5,0) (ledC) -- ++(-0.5,0);
+    \diodeEW{#1}{#2}{below}{#3}
+    \draw [-latex] #2 ++(0.2,0.2) -- ++(-0.2,0.2);
+    \draw [-latex] #2 ++(0.3,0.3) -- ++(-0.2,0.2);
+}
+
 \newcommand{\photodiodeNSE}[3]{
     % Photo Diode in North-South Orientation, Light from East
     % \photodiodeNSE{name}{position}{text}
