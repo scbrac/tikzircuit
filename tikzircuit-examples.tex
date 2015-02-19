@@ -856,6 +856,94 @@ Example:\\
 \end{tikzpicture}
 \end{minipage}
 
+\subsection{Schottky Diode in North-South Orientation}
+
+\begin{verbatim}
+\sDiodeNS{name}{position}{align:left|right}{text}
+\end{verbatim}
+node endings: A: anode, C: cathode
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\sDiodeNS{zd}{(0,0)}{left}{$D_{1}$}
+\draw (zdA) -- ++(0,0.5) (zdC) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \sDiodeNS{zd}{(0,0)}{left}{$D_{1}$}
+  \draw (zdA) -- ++(0,0.5) (zdC) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Schottky Diode in South-North Orientation}
+
+\begin{verbatim}
+\sDiodeSN{name}{position}{align:left|right}{text}
+\end{verbatim}
+node endings: A: anode, C: cathode
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\sDiodeSN{zd}{(0,0)}{left}{$D_{1}$}
+\draw (zdA) -- ++(0,-0.5) (zdC) -- ++(0,0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \sDiodeSN{zd}{(0,0)}{left}{$D_{1}$}
+  \draw (zdA) -- ++(0,-0.5) (zdC) -- ++(0,0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Schottky Diode in West-East Orientation}
+
+\begin{verbatim}
+\sDiodeWE{name}{position}{align:above|below}{text}
+\end{verbatim}
+node endings: A: anode, C: cathode
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\sDiodeWE{zd}{(0,0)}{above}{$D_{1}$}
+\draw (zdA) -- ++(-0.5,0) (zdC) -- ++(0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \sDiodeWE{zd}{(0,0)}{above}{$D_{1}$}
+  \draw (zdA) -- ++(-0.5,0) (zdC) -- ++(0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
+\subsection{Schottky Diode in East-West Orientation}
+
+\begin{verbatim}
+\sDiodeEW{name}{position}{align:above|below}{text}
+\end{verbatim}
+node endings: A: anode, C: cathode
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\sDiodeEW{zd}{(0,0)}{above}{$D_{1}$}
+\draw (zdA) -- ++(0.5,0) (zdC) -- ++(-0.5,0);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \sDiodeEW{zd}{(0,0)}{above}{$D_{1}$}
+  \draw (zdA) -- ++(0.5,0) (zdC) -- ++(-0.5,0);
+
+\end{tikzpicture}
+\end{minipage}
+
 \subsection{LED in North-South Orientation, Light in East Direction}
 
 \begin{verbatim}

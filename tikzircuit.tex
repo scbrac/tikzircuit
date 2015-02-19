@@ -521,6 +521,54 @@
     \draw #2 ++ (0,-0.2) -- ++(0.1,0);
 }
 
+\newcommand{\sDiodeNS}[4]{
+    % Schottky Diode in North-South Orientation
+    % \sDiodeNS{name}{position}{align:left|right}{text}
+    % node endings: A: anode, C: cathode
+    % example:
+    %   \sDiodeNS{zd}{(0,0)}{left}{$D_{1}$}
+    %   \draw (zdA) -- ++(0,0.5) (zdC) -- ++(0,-0.5);
+    \diodeNS{#1}{#2}{#3}{#4}
+    \draw #2 ++ (0.2,0) |- ++(-0.1,-0.1);
+    \draw #2 ++ (-0.2,0) |- ++(0.1,0.1);
+}
+
+\newcommand{\sDiodeSN}[4]{
+    % Schottky Diode in South-North Orientation
+    % \sDiodeSN{name}{position}{align:left|right}{text}
+    % node endings: A: anode, C: cathode
+    % example:
+    %   \sDiodeSN{zd}{(0,0)}{left}{$D_{1}$}
+    %   \draw (zdA) -- ++(0,-0.5) (zdC) -- ++(0,0.5);
+    \diodeSN{#1}{#2}{#3}{#4}
+    \draw #2 ++ (0.2,0) |- ++(-0.1,-0.1);
+    \draw #2 ++ (-0.2,0) |- ++(0.1,0.1);
+}
+
+\newcommand{\sDiodeWE}[4]{
+    % Schottky Diode in West-East Orientation
+    % \sDiodeWE{name}{position}{align:above|below}{text}
+    % node endings: A: anode, C: cathode
+    % example:
+    %   \sDiodeWE{zd}{(0,0)}{above}{$D_{1}$}
+    %   \draw (zdA) -- ++(-0.5,0) (zdC) -- ++(0.5,0);
+    \diodeWE{#1}{#2}{#3}{#4}
+    \draw #2 ++ (0,0.2) -| ++(0.1,-0.1);
+    \draw #2 ++ (0,-0.2) -| ++(-0.1,0.1);
+}
+
+\newcommand{\sDiodeEW}[4]{
+    % Schottky Diode in East-West Orientation
+    % \sDiodeEW{name}{position}{align:above|below}{text}
+    % node endings: A: anode, C: cathode
+    % example:
+    %   \sDiodeEW{zd}{(0,0)}{above}{$D_{1}$}
+    %   \draw (zdA) -- ++(0.5,0) (zdC) -- ++(-0.5,0);
+    \diodeEW{#1}{#2}{#3}{#4}
+    \draw #2 ++ (0,0.2) -| ++(0.1,-0.1);
+    \draw #2 ++ (0,-0.2) -| ++(-0.1,0.1);
+}
+
 \newcommand{\ledNSE}[3]{
     % LED in North-South Orientation, Light in East Direction
     % \ledNSE{name}{position}{text}
