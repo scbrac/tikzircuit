@@ -661,6 +661,18 @@
     \draw [latex-] #2 ++(-0.2,0.2) -- ++(-0.2,-0.2);
 }
 
+\newcommand{\photodiodeSNW}[3]{
+    % photo diode in South-North Orientation, Light from West
+    % \photodiodeSNW{name}{position}{text}
+    % node endings: A: anode, C: cathode
+    % example:
+    %   \photodiodeSNW{pd}{(0,0)}{$D_{1}$}
+    %   \draw (pdA) -- ++(0,-0.5) (pdC) -- ++(0,0.5);
+    \diodeSN{#1}{#2}{right}{#3}
+    \draw [latex-] #2 ++(-0.3,-0.3) -- ++(-0.2,0.2);
+    \draw [latex-] #2 ++(-0.2,-0.2) -- ++(-0.2,0.2);
+}
+
 % Transistors
 \newcommand{\nChnJFETNS}[2]{
     % N-Channel JFET in North-South Orientation
