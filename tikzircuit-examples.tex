@@ -2800,6 +2800,28 @@ Example:\\
 \end{tikzpicture}
 \end{minipage}
 
+\subsection{Buzzer}
+
+\begin{verbatim}
+\piezobuzzerWE{name}{position}
+\end{verbatim}
+node endings: N: north, S: south,
+
+Example:\\
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\piezobuzzerWE{bz}{(0,0)}
+\draw (bzN) -- ++(0,0.5) (bzS) -- ++(0,-0.5);
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.19\textwidth}
+\begin{tikzpicture}
+  \piezobuzzerWE{bz}{(0,0)}
+  \draw (bzN) -- ++(0,0.5) (bzS) -- ++(0,-0.5);
+
+\end{tikzpicture}
+\end{minipage}
+
 \subsection{Bulb}
 
 \begin{verbatim}

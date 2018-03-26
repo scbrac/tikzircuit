@@ -111,8 +111,7 @@ def main():
                 example = ''
     with open('tikzircuit-examples.tex', 'a') as outfile:
         outfile.write('\n\\end{document}')
-    os.system('rubber --pdf tikzircuit-examples.tex')
-    os.system('rubber --clean tikzircuit-examples.tex')
+    os.system('latexmk -pdf tikzircuit-examples.tex')
 
 if __name__ == '__main__':
     main()

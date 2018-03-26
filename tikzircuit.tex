@@ -1664,6 +1664,24 @@
     \draw[very thick] #2 ++(0.5,-0.25) -- ++(0,0.5);
 }
 
+\newcommand{\piezobuzzerWE}[2]{
+    % Buzzer
+    % \piezobuzzerWE{name}{position}
+    % node endings: N: north, S: south,
+    % example:
+    %   \piezobuzzerWE{bz}{(0,0)}
+    %   \draw (bzN) -- ++(0,0.5) (bzS) -- ++(0,-0.5);
+    \draw #2 \cnode{#1};
+    \draw #2 ++(0, 0.1) \cnode{#1N} -- ++(0.1,0);
+    \draw #2 ++(0,-0.1) \cnode{#1S} -- ++(0.1,0);
+    \draw[fill=\fillcolor] #2 ++(0.1,-0.2) rectangle ++(0.4,0.4);
+    \draw[fill=\fillcolor] #2 ++(0.5,-0.2) -- ++(0.3,-0.2) -- ++(0,0.8) -- ++(-0.3,-0.2);
+    \draw[very thick] #2 ++(0.5,-0.25) -- ++(0,0.5);
+    \draw #2 ++(0.2,-0.05) rectangle ++(0.2,0.1);
+    \draw #2 ++(0.2,-0.1) -- ++(0.2,0);
+    \draw #2 ++(0.2,+0.1) -- ++(0.2,0);
+}
+
 \newcommand{\bulb}[2]{
     % Bulb
     % \bulb{name}{position}
